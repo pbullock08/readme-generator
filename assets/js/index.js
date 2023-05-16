@@ -1,39 +1,40 @@
-// TODO: Include packages needed for this application
+// Packages and files needed for this application
 
 const inquirer = require('inquirer');
+const fs = require('fs');
+const generateMarkdown = require('./generateMarkdown');
 
-console.log(inquirer);
-// TODO: Create an array of questions for user input
-
-inquirer
-.prompt([
-    { type: 'input',
-    message: 'What is the title of your project?',
-    name: 'Title',
+// console.log(inquirer);
+// Array of questions for user input
+const questions = [
+    {
+        type: 'input',
+        message: 'What is the title of your project?',
+        name: 'title',
     },
 
     {
         type: 'input',
         message: 'What is the description of your project?',
-        name: 'Description',
+        name: 'description',
     },
 
     {
         type: 'input',
         message: 'What are the installation instructions for your project?',
-        name: 'Installation',
+        name: 'installation',
     },
 
     {
         type: 'input',
         message: 'How do you use your project?',
-        name: 'Usage',
+        name: 'usage',
     },
 
     {
         type: 'list',
         message: 'What license do you want to use for your project?',
-        name: 'License',
+        name: 'license',
         choices: [
             {
                 name: 'MIT License',
@@ -49,29 +50,19 @@ inquirer
                 name: 'GNU General Public License v3.0',
                 value: 'GNU',
             },
-
-            {
-                name: 'BSD 2-Clause "Simplified" License',
-                value: 'BSD',
-            },
-
-            {
-                name: 'Mozilla Public License 2.0',
-                value: 'Mozilla',
-            },
-        ]   
+        ]
     },
 
     {
         type: 'input',
         message: 'What are the contribution guidelines for your project?',
-        name: 'Contributing',
+        name: 'contributing',
     },
 
     {
         type: 'input',
         message: 'What are the test instructions for your project?',
-        name: 'Tests',
+        name: 'tests',
     },
 
     {
@@ -85,20 +76,22 @@ inquirer
         message: 'What is your email address?',
         name: 'email',
     },
-])
+];
 
-.then((data) => {
-    console.log(data)
-});
-
-
-
-
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
-
-// TODO: Create a function to initialize app
-function init() { }
+function writeToFile(fileName, data) {
+    generateMarkdown(data);
+}
+//Function to initialize app
+function init() {
+    inquirer.prompt(questions)
+        .then((data) => {
+            // //Function to write README file
+            // fs.writeFile("README.md", generateMarkdown(data), (err) =>
+            //     err ? console.log(err) : console.log('Successfully created README.md!')
+            // );
+            writeToFile();
+        })
+}
 
 // Function call to initialize app
 init();
