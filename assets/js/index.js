@@ -78,20 +78,24 @@ const questions = [
     },
 ];
 
-function writeToFile(fileName, data) {
-    generateMarkdown(data);
-}
+// function writeToFile(fileName, data) {
+//     generateMarkdown(data);
+// }
 //Function to initialize app
 function init() {
     inquirer.prompt(questions)
         .then((data) => {
-            // //Function to write README file
-            // fs.writeFile("README.md", generateMarkdown(data), (err) =>
-            //     err ? console.log(err) : console.log('Successfully created README.md!')
-            // );
-            writeToFile();
-        })
-}
+            const readmeContent = generateMarkdown(data);
+            //Function to write README file
+            fs.writeFile('README.md', readmeContent, (err) =>
+                err ? console.log(err) : console.log('Successfully created README.md!')
+            );
+            // writeToFile();
+            renderLicenseBadge();
+            renderLicenseSection();
+            renderLicenseLink();
+        });
+};
 
 // Function call to initialize app
 init();
