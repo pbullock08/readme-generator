@@ -49,8 +49,7 @@ function renderTOC(license) {
 
 // Function to generate markdown for README
 function generateMarkdown({ title, license, description, installation, usage, contributing, tests, username, email}) {
-  return `
-  # ${title}
+  return `# ${title}
   ${renderLicenseBadge(license)}
 
   ## Description
@@ -78,7 +77,7 @@ function generateMarkdown({ title, license, description, installation, usage, co
 
   ## Questions
 
-  For questions or issues regarding this application, you can contact me via [GitHub](https://github.com/${username}) or via email at ${email}. </br> Please include the repository name as the subject of your correspondence.`;
+  For questions or issues regarding this application, you can contact me via [GitHub](https://github.com/${username}/) or via email at ${email}. </br> Please include the repository name as the subject of your correspondence.`;
 }
 
 module.exports = generateMarkdown;
