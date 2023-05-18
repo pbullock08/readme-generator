@@ -86,9 +86,9 @@ const questions = [
 function init() {
     inquirer.prompt(questions)
         .then((data) => {
-            console.log(data);
+            //function to create readme file from user input 
             fs.writeFile('README.md', generateMarkdown(data), (err) =>
-                err ? console.log(err) : console.log('Successfully created README.md!')
+                err ? console.log(err) : console.log('README.md file successfully completed!')
             );
         });
 

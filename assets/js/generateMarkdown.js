@@ -1,4 +1,4 @@
-// Function that returns a license badge based on which license is passed in, if there is no license, return an empty string
+// Function that returns a license badge based on which license is passed in, if there is no license it returns an empty string
 function renderLicenseBadge(license) { 
   switch (license) {
     case 'MIT':
@@ -11,25 +11,25 @@ function renderLicenseBadge(license) {
       return`[![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)`;
       break;
     default:
-    return '';
+    return ``;
     break;
   }
 }
 
-// Function that returns the license section and link, if there is no license, return an empty string
-function renderLicenseLink(license) { 
+// Function that returns the license section and link, if there is no license it returns an empty string
+function renderLicense(license) { 
   switch (license) {
     case 'MIT':
-      return `## License \n\n[MIT](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)`;
+      return `## License \n\nThis application is licensed under the [MIT license.](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt)`;
       break;
     case 'Apache':
-     return `## License \n\n[Apache](https://github.com/apache/.github/blob/main/LICENSE)`;
+     return `## License \n\nThis application is licensed under the [Apache license.](https://github.com/apache/.github/blob/main/LICENSE)`;
       break;
     case 'GNU':
-      return `## License \n\n[GNU](https://github.com/collective/example.p4p5/blob/master/LICENSE.GPL)`;
+      return `## License \n\nThis application is licensed under the [GNU license.](https://github.com/collective/example.p4p5/blob/master/LICENSE.GPL)`;
       break;
     default:
-    return '';
+    return ``;
     break;
   }
 }
@@ -66,7 +66,7 @@ function generateMarkdown({ title, license, description, installation, usage, co
 
   ${usage}
 
-  ${renderLicenseLink(license)}
+  ${renderLicense(license)}
 
   ## Contributing 
 
@@ -78,7 +78,7 @@ function generateMarkdown({ title, license, description, installation, usage, co
 
   ## Questions
 
-  For questions you can contact me via [GitHub](https://github.com/${username}) or via email at ${email}.`;
+  For questions or issues regarding this application, you can contact me via [GitHub](https://github.com/${username}) or via email at ${email}. </br> Please include the repository name as the subject of your correspondence.`;
 }
 
 module.exports = generateMarkdown;
