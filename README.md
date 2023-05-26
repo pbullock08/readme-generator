@@ -24,6 +24,3 @@ Please refer to the license in the repo.
 ## Demo
 
 https://github.com/pbullock08/readme-generator/assets/126013657/49670d4d-dca6-47f4-8b09-1c925272df26
-
-
-
