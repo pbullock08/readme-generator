@@ -80,4 +80,5 @@ function generateMarkdown({ title, license, description, installation, usage, co
   For questions or issues regarding this application, you can contact me via [GitHub](https://github.com/${username}/) or via email at ${email}. </br> Please include the repository name as the subject of your correspondence.`;
 }
 
+// export generateMarkdown fuction to index.js
 module.exports = generateMarkdown;
